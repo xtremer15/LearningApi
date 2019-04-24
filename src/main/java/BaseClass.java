@@ -1,7 +1,11 @@
 public class BaseClass {
     public static void main(String[] args) {
 
-        System.out.println("done");
+        String done = "done";
+        boolean finished = true;
+        if (done.equals(finished)) {
+            System.out.println("done");
 
+        }
     }
 }
