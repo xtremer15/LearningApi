@@ -8,7 +8,7 @@ public class BubbleSort {
         boolean finished = true;
 
 
-        int[] array = {99, 88, 55, 77, 1, 66};
+        int[] array = {88, 55, 99, 77, 1, 30, 21, 34};
 
         System.out.print("unsorted data: ");
         printArray(array);
