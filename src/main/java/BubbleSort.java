@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class BaseClass {
+public class BubbleSort {
     public static void main(String[] args) {
 
 
