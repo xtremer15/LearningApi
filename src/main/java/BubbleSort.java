@@ -13,12 +13,12 @@ public class BubbleSort {
         System.out.print("unsorted data: ");
         printArray(array);
 
-        System.out.print("ascending order: "); //1,55,66,77,88,99
+        System.out.print("ascending order: ");
         bubble_sort(array);
 
         printArray(array);
 
-        System.out.print("descending order: "); //99,88,77,66,55,1
+        System.out.print("descending order: ");
         bubble_sort(array, false);
 
         printArray(array);
