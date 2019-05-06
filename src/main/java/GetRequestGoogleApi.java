@@ -25,7 +25,5 @@ public class GetRequestGoogleApi {
                 .header("server", "scaffolding on HTTPServer2");
 
 
-
-
     }
 }

@@ -43,10 +43,17 @@ public class DeleteRequestGoogleApi {
                 then().statusCode(200).and().contentType(ContentType.JSON).and().
                 body("status", equalTo("OK")).extract().response();
 
-                String responseAsString = response.asString();
-                System.out.println(responseAsString);
-                JsonPath jsonPath = new JsonPath(responseAsString);
-                String placeId = jsonPath.get("place_id");
-                System.out.println(placeId);
+        String responseAsString = response.asString();
+        System.out.println(responseAsString);
+        JsonPath jsonPath = new JsonPath(responseAsString);
+        String placeId = jsonPath.get("place_id");
+        System.out.println(placeId);
+
+
+        given().queryParam("key", "qaclick123").
+                body("{" + "\"place_id\":\"" + placeId + "\"" + "}").when()
+                .get("/maps/api/place/delete/json").
+                then().assertThat().statusCode(200).and().contentType(ContentType.JSON).and()
+                .body("status", equalTo("OK"));
     }
 }
