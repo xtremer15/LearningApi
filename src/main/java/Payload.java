@@ -57,26 +57,6 @@ public class Payload {
         return bodyJsonPayload2;
     }
 
-    public static String bodyXML() {
-        String xmlPayLoad = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" +
-                "<root>\n" +
-                "    <location>\n" +
-                "        <lat>-38.383494</lat>\n" +
-                "        <lng>33.427362</lng>\n" +
-                "    </location>\n" +
-                "    <accuracy>50</accuracy>\n" +
-                "    <name>The Mens store</name>\n" +
-                "    <phone_number>(+91) 983 893 3937</phone_number>\n" +
-                "    <address>Anna Salai, Chennai</address>\n" +
-                "    <types>shoe park</types>\n" +
-                "    <types>kadai</types>\n" +
-                "    <website>http://google.com</website>\n" +
-                "    <language>tamil-IN</language>\n" +
-                "</root>\n";
-
-        return xmlPayLoad;
-    }
-
 
 }
 
