@@ -17,8 +17,7 @@ public class PostRequest {
                 body(payLoadXML).
                 when().
                 post("/maps/api/place/add/xml ").
-                then().statusCode(200).and().contentType(ContentType.XML).and().
-                body("status", equalTo("OK"));
+                then().statusCode(200).and().contentType(ContentType.XML).extract().response();
     }
 
     //Converts an XML file to String format by passing the path from the xml file
