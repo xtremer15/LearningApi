@@ -24,7 +24,7 @@ public class DeleteRequestGoogleApi {
 
         Response response = given().
                 queryParam("key", Key).
-                body(Payload.bodyPayload()).
+                body(Payload.bodyJsonPayload()).
                 when().
                 post(Resoruces.placeADD()).
                 then().statusCode(200).and().contentType(ContentType.JSON).and().

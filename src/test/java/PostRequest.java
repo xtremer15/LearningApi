@@ -1,6 +1,10 @@
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -10,10 +14,15 @@ public class PostRequest {
 
         given().
                 queryParam("key", "qaclick123").
-                body(Payload.bodyPayload2()).
+                body(Payload.bodyXML()).
                 when().
-                post("/maps/api/place/add/json").
-                then().statusCode(200).and().contentType(ContentType.JSON).and().
+                post("/maps/api/place/add/xml ").
+                then().statusCode(200).and().contentType(ContentType.XML).and().
                 body("status", equalTo("OK"));
+    }
+
+
+    public static String GenerateStringFromResource(String path) throws IOException {
+        return new String(Files.readAllBytes(Paths.get(path)));
     }
 }

@@ -10,7 +10,7 @@ public class PostRequestGoogleApi {
 
         given().
                 queryParam("key", "qaclick123").
-                body(Payload.bodyPayload2()).
+                body(Payload.bodyJsonPayload2()).
                 when().
                 post("/maps/api/place/add/json").
                 then().statusCode(200).and().contentType(ContentType.JSON).and().
