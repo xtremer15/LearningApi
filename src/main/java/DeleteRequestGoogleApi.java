@@ -4,12 +4,23 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class DeleteRequestGoogleApi {
-    public static void main(String[] args) {
-        RestAssured.baseURI = "http://216.10.245.166";
+    public static void main(String[] args) throws IOException {
+        Properties prope = new Properties();
+        FileInputStream fis = new FileInputStream("C:\\Users\\mihai.constantin\\Learning\\target\\env.properites");
+        prope.load(fis);
+        String URL = prope.getProperty("URL");
+        String Key = prope.getProperty("KEY");
+
+        RestAssured.baseURI = URL;
         String body = "{\n" +
                 "\n" +
                 "    \"location\":{\n" +
@@ -36,7 +47,7 @@ public class DeleteRequestGoogleApi {
                 "\n" +
                 "}";
         Response response = given().
-                queryParam("key", "qaclick123").
+                queryParam("key", Key).
                 body(body).
                 when().
                 post("/maps/api/place/add/json").
@@ -52,7 +63,7 @@ public class DeleteRequestGoogleApi {
 
         given().queryParam("key", "qaclick123").
                 body("{" + "\"place_id\":\"" + placeId + "\"" + "}").when()
-                .get("/maps/api/place/delete/json").
+                .post("/maps/api/place/delete/json").
                 then().assertThat().statusCode(200).and().contentType(ContentType.JSON).and()
                 .body("status", equalTo("OK"));
     }
